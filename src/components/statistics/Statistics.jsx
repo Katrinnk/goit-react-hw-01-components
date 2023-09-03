@@ -1,25 +1,20 @@
+import { Item } from "./item-style";
+import { SectionStatistics } from "./sectionStatistics-style";
+import { SpanLabelStatistics } from "./spanLabel-style";
+import { SpanPercentage } from "./spanPercentage-style";
+import { StatsList } from "./statsList-style";
 
-export const Statistics = ({id, label, percentage}) => (
-    <section class="statistics">
-  <h2 class="title">Upload stats</h2>
+export const Statistics = ({title, data}) => (
+    <SectionStatistics className="statistics">
+ {title && <h2 className="title">{title}</h2>}
 
-  <ul class="stat-list">
-    <li class="item">
-      <span class="label">.docx</span>
-      <span class="percentage">4%</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp3</span>
-      <span class="percentage">14%</span>
-    </li>
-    <li class="item">
-      <span class="label">.pdf</span>
-      <span class="percentage">41%</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp4</span>
-      <span class="percentage">12%</span>
-    </li>
-  </ul>
-</section>
+  <StatsList className="stat-list">
+    {data.map( stats => (
+      <Item className="item" key={stats.id}>
+        <SpanLabelStatistics className="label">{stats.label}</SpanLabelStatistics>
+        <SpanPercentage className="percentage">{stats.percentage}%</SpanPercentage>
+      </Item>
+    ))}
+  </StatsList>
+</SectionStatistics>
 )

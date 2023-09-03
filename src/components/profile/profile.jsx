@@ -1,31 +1,39 @@
-import { List, ProfileDiv, StatsUl } from "./profile-styles";
+import { List } from "./list-style";
+import { PLocation } from "./pLocation-style";
+import { PName } from "./pName-style";
+import { ProfileDiv } from "./profileDiv-style";
+import { PTag } from "./pTag-style";
+import { SpanLabel } from "./spanLabel-style";
+import { SpanQuantity } from "./spanQuantity-style";
+import { StatsUl } from "./statsUl-style";
+
 
 export const Profile = ({username, tag, location, avatar, stats}) => (
-    <ProfileDiv class="profile">
-  <div class="description">
+    <ProfileDiv className="profile">
+  <div className="description">
     <img
-        width='80%'
+      width='100%'
       src={avatar}
       alt="User avatar"
-      class="avatar"
+      className="avatar"
     />
-    <p class="name">{username}</p>
-    <p class="tag">@{tag}</p>
-    <p class="location">{location}</p>
+    <PName className="name">{username}</PName>
+    <PTag className="tag">@{tag}</PTag>
+    <PLocation className="location">{location}</PLocation>
   </div>
 
-  <StatsUl class="stats">
+  <StatsUl className="stats">
     <List>
-      <span class="label">Followers</span>
-      <span class="quantity">{stats.followers}</span>
+      <SpanLabel className="label">Followers</SpanLabel>
+      <SpanQuantity className="quantity">{stats.followers}</SpanQuantity>
     </List>
     <List>
-      <span class="label">Views</span>
-      <span class="quantity">{stats.views}</span>
+      <SpanLabel className="label">Views</SpanLabel>
+      <SpanQuantity className="quantity">{stats.views}</SpanQuantity>
     </List>
     <List>
-      <span class="label">Likes</span>
-      <span class="quantity">{stats.likes}</span>
+      <SpanLabel className="label">Likes</SpanLabel>
+      <SpanQuantity className="quantity">{stats.likes}</SpanQuantity>
     </List>
   </StatsUl>
 </ProfileDiv>
