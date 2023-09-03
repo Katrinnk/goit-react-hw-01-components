@@ -20,9 +20,13 @@ export const StatsUl = styled('ul')({
     justifyContent: 'space-between',
     alignItems: 'center',
     listStyleType: 'none',
+    padding: '0',
+    margin: '0',
+    width: '100%',
 })
 
 export const List = styled('li')({
     display: 'flex',
     flexDirection: 'column',
+    
 })
