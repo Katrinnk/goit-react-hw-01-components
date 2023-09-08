@@ -1,16 +1,15 @@
-import { FriendList } from "./friendlist-style";
-import { ItemFriendList } from "./itemFriendList-style";
-import { PNameFriendList } from "./pNameFrieandList-style";
-import { StatusFriendlist } from "./statusFriendList-style";
+import { FriendList } from './friendlist.styled';
+import { FriendlistItem } from './FriendListItem';
 
-export const Friendlist = ({friends}) => (
-    <FriendList className="friend-list">
-        {friends.map( friend => (
-            <ItemFriendList className="item" key={friend.id}>
-                <StatusFriendlist isOnline={friend.isOnline} className="status"></StatusFriendlist>
-                <img className="avatar" src={friend.avatar} alt="User avatar" width="48" />
-                <PNameFriendList className="name">{friend.name}</PNameFriendList>
-            </ItemFriendList>
-        ))}
-    </FriendList>
-)
+export const Friendlist = ({ friends }) => (
+  <FriendList>
+    {friends.map(({ id, avatar, name, isOnline }) => (
+      <FriendlistItem
+        key={id}
+        avatar={avatar}
+        name={name}
+        isOnline={isOnline}
+      />
+    ))}
+  </FriendList>
+);
